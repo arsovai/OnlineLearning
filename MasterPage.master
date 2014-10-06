@@ -1,0 +1,47 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="Styles.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="master">
+    <form id="form1" runat="server">
+    <div>
+       <div class="userStatus" >
+        <asp:LoginView ID="LoginView1" runat="server">
+            <AnonymousTemplate>
+                <a class="nav-item"> Не сте најавени.</a>
+                <a class="nav-item" href="LoginPage.aspx"> Најави се</a>
+            </AnonymousTemplate>
+            <LoggedInTemplate>
+                <b> Најавени како: </b> <asp:LoginName ID="LoginName1" runat="server" /> 
+                <asp:LoginStatus ID="LoginStatus1" runat="server"  class="nav-item" 
+                    LogoutText="Одјави се"/>      
+            </LoggedInTemplate>
+        </asp:LoginView>
+        </div>
+    <div class="header">
+        <h1 id="naslov">Онлајн учење</h1>
+
+        <div id="menubar" runat="server" style=" clear: both" visible="true"> 
+            <ul id="menuListId" class="menulist">  
+                <li id="Li1"> <a href="Default.aspx">Дома</a> </li>             
+                <li id="Li3"> <a href="ViewSubjects.aspx">Предмети</a></li>
+                <li id="Li4" runat="server"> <a href="Admin.aspx">Админ</a></li>
+            </ul>
+        </div>
+
+        <br/>
+        </div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

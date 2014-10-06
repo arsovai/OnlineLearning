@@ -1,0 +1,1555 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="addQuestion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="questionNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="questionText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addQuestionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="addQuestionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="editQuestion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="questionID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="questionNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="questionText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="editQuestionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="editQuestionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteQuestion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="questionID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteQuestionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deleteQuestionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addAnswer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="questionID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="choiceLetter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="choiceText" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="rightChoice" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addAnswerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="addAnswerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="editAnswer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="questionID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="choiceLetter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="choiceText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="editAnswerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="editAnswerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteAnswer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="questionID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteAnswerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deleteAnswerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectChoicesByQuestionID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QuestionID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectChoicesByQuestionIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectChoicesByQuestionIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addCompletedChapterByStudent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="studentId" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="chapterId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="hasCompleted" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addCompletedChapterByStudentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="addCompletedChapterByStudentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkRightChoice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChoiceID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkRightChoiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="checkRightChoiceResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addSubjectQuestionData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="questionID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="subjectID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="oblastID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addSubjectQuestionDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="addSubjectQuestionDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectNumberQuestionByChapter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="chapterID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectNumberQuestionByChapterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="selectNumberQuestionByChapterResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectAllSubjects">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectAllSubjectsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectAllSubjectsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectAllOblastBySubject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="subjectID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectAllOblastBySubjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectAllOblastBySubjectResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addVisitedQuestion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QuestionID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="numOfQuestion" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addVisitedQuestionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="addVisitedQuestionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectVisitedByQuestionID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="questionID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectVisitedByQuestionIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="selectVisitedByQuestionIDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectVisitedNumberByQuestionID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="questionID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectVisitedNumberByQuestionIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="selectVisitedNumberByQuestionIDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectAnsweredTrueByQuestionID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="questionID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectAnsweredTrueByQuestionIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="selectAnsweredTrueByQuestionIDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectNumberLastAnsweredQuestions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StrategyValue" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectNumberLastAnsweredQuestionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="selectNumberLastAnsweredQuestionsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setAnsweredTrueQuestion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QuestionID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="answeredTrue" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setAnsweredTrueQuestionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="setAnsweredTrueQuestionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selektirajQuestionID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="questionID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selektirajQuestionIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="selektirajQuestionIDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="removeDataFromVisitQuestion">
+        <s:complexType />
+      </s:element>
+      <s:element name="removeDataFromVisitQuestionResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectSubjectByUser">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectSubjectByUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectSubjectByUserResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectOblast">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="subjectID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectOblastResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectOblastResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectOblastByStudent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="subjectID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="studentID" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectOblastByStudentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectOblastByStudentResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectCompletedOblastByStudent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="oblastID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="studentID" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectCompletedOblastByStudentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="selectCompletedOblastByStudentResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectStrategy">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectStrategyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectStrategyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectStrategyBySubjectAndOblast">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="subjectID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="oblastID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectStrategyBySubjectAndOblastResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectStrategyBySubjectAndOblastResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectStrategyValue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="subjectID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="oblastID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="strategyID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectStrategyValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="selectStrategyValueResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectQuestions">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectQuestionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectQuestionsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectAllQuestions">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectAllQuestionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectAllQuestionsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectOneQuestionBySubjectAndField">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SubjectID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OblastID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectOneQuestionBySubjectAndFieldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectOneQuestionBySubjectAndFieldResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectAllQuestionsBySubjectAndField">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SubjectID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OblastID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectAllQuestionsBySubjectAndFieldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectAllQuestionsBySubjectAndFieldResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectQuestionsBySubjectFieldAndValue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SubjectID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OblastID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Value" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectQuestionsBySubjectFieldAndValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectQuestionsBySubjectFieldAndValueResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addOnlineLearning">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="subjectID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="oblastID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="strategyID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="strategyValue" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addOnlineLearningResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="addOnlineLearningResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="addQuestionSoapIn">
+    <wsdl:part name="parameters" element="tns:addQuestion" />
+  </wsdl:message>
+  <wsdl:message name="addQuestionSoapOut">
+    <wsdl:part name="parameters" element="tns:addQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="editQuestionSoapIn">
+    <wsdl:part name="parameters" element="tns:editQuestion" />
+  </wsdl:message>
+  <wsdl:message name="editQuestionSoapOut">
+    <wsdl:part name="parameters" element="tns:editQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteQuestionSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteQuestion" />
+  </wsdl:message>
+  <wsdl:message name="deleteQuestionSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="addAnswerSoapIn">
+    <wsdl:part name="parameters" element="tns:addAnswer" />
+  </wsdl:message>
+  <wsdl:message name="addAnswerSoapOut">
+    <wsdl:part name="parameters" element="tns:addAnswerResponse" />
+  </wsdl:message>
+  <wsdl:message name="editAnswerSoapIn">
+    <wsdl:part name="parameters" element="tns:editAnswer" />
+  </wsdl:message>
+  <wsdl:message name="editAnswerSoapOut">
+    <wsdl:part name="parameters" element="tns:editAnswerResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteAnswerSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteAnswer" />
+  </wsdl:message>
+  <wsdl:message name="deleteAnswerSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteAnswerResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectChoicesByQuestionIDSoapIn">
+    <wsdl:part name="parameters" element="tns:selectChoicesByQuestionID" />
+  </wsdl:message>
+  <wsdl:message name="selectChoicesByQuestionIDSoapOut">
+    <wsdl:part name="parameters" element="tns:selectChoicesByQuestionIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="addCompletedChapterByStudentSoapIn">
+    <wsdl:part name="parameters" element="tns:addCompletedChapterByStudent" />
+  </wsdl:message>
+  <wsdl:message name="addCompletedChapterByStudentSoapOut">
+    <wsdl:part name="parameters" element="tns:addCompletedChapterByStudentResponse" />
+  </wsdl:message>
+  <wsdl:message name="checkRightChoiceSoapIn">
+    <wsdl:part name="parameters" element="tns:checkRightChoice" />
+  </wsdl:message>
+  <wsdl:message name="checkRightChoiceSoapOut">
+    <wsdl:part name="parameters" element="tns:checkRightChoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="addSubjectQuestionDataSoapIn">
+    <wsdl:part name="parameters" element="tns:addSubjectQuestionData" />
+  </wsdl:message>
+  <wsdl:message name="addSubjectQuestionDataSoapOut">
+    <wsdl:part name="parameters" element="tns:addSubjectQuestionDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectNumberQuestionByChapterSoapIn">
+    <wsdl:part name="parameters" element="tns:selectNumberQuestionByChapter" />
+  </wsdl:message>
+  <wsdl:message name="selectNumberQuestionByChapterSoapOut">
+    <wsdl:part name="parameters" element="tns:selectNumberQuestionByChapterResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectAllSubjectsSoapIn">
+    <wsdl:part name="parameters" element="tns:selectAllSubjects" />
+  </wsdl:message>
+  <wsdl:message name="selectAllSubjectsSoapOut">
+    <wsdl:part name="parameters" element="tns:selectAllSubjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectAllOblastBySubjectSoapIn">
+    <wsdl:part name="parameters" element="tns:selectAllOblastBySubject" />
+  </wsdl:message>
+  <wsdl:message name="selectAllOblastBySubjectSoapOut">
+    <wsdl:part name="parameters" element="tns:selectAllOblastBySubjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="addVisitedQuestionSoapIn">
+    <wsdl:part name="parameters" element="tns:addVisitedQuestion" />
+  </wsdl:message>
+  <wsdl:message name="addVisitedQuestionSoapOut">
+    <wsdl:part name="parameters" element="tns:addVisitedQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectVisitedByQuestionIDSoapIn">
+    <wsdl:part name="parameters" element="tns:selectVisitedByQuestionID" />
+  </wsdl:message>
+  <wsdl:message name="selectVisitedByQuestionIDSoapOut">
+    <wsdl:part name="parameters" element="tns:selectVisitedByQuestionIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectVisitedNumberByQuestionIDSoapIn">
+    <wsdl:part name="parameters" element="tns:selectVisitedNumberByQuestionID" />
+  </wsdl:message>
+  <wsdl:message name="selectVisitedNumberByQuestionIDSoapOut">
+    <wsdl:part name="parameters" element="tns:selectVisitedNumberByQuestionIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectAnsweredTrueByQuestionIDSoapIn">
+    <wsdl:part name="parameters" element="tns:selectAnsweredTrueByQuestionID" />
+  </wsdl:message>
+  <wsdl:message name="selectAnsweredTrueByQuestionIDSoapOut">
+    <wsdl:part name="parameters" element="tns:selectAnsweredTrueByQuestionIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectNumberLastAnsweredQuestionsSoapIn">
+    <wsdl:part name="parameters" element="tns:selectNumberLastAnsweredQuestions" />
+  </wsdl:message>
+  <wsdl:message name="selectNumberLastAnsweredQuestionsSoapOut">
+    <wsdl:part name="parameters" element="tns:selectNumberLastAnsweredQuestionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="setAnsweredTrueQuestionSoapIn">
+    <wsdl:part name="parameters" element="tns:setAnsweredTrueQuestion" />
+  </wsdl:message>
+  <wsdl:message name="setAnsweredTrueQuestionSoapOut">
+    <wsdl:part name="parameters" element="tns:setAnsweredTrueQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="selektirajQuestionIDSoapIn">
+    <wsdl:part name="parameters" element="tns:selektirajQuestionID" />
+  </wsdl:message>
+  <wsdl:message name="selektirajQuestionIDSoapOut">
+    <wsdl:part name="parameters" element="tns:selektirajQuestionIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="removeDataFromVisitQuestionSoapIn">
+    <wsdl:part name="parameters" element="tns:removeDataFromVisitQuestion" />
+  </wsdl:message>
+  <wsdl:message name="removeDataFromVisitQuestionSoapOut">
+    <wsdl:part name="parameters" element="tns:removeDataFromVisitQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectSubjectByUserSoapIn">
+    <wsdl:part name="parameters" element="tns:selectSubjectByUser" />
+  </wsdl:message>
+  <wsdl:message name="selectSubjectByUserSoapOut">
+    <wsdl:part name="parameters" element="tns:selectSubjectByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectOblastSoapIn">
+    <wsdl:part name="parameters" element="tns:selectOblast" />
+  </wsdl:message>
+  <wsdl:message name="selectOblastSoapOut">
+    <wsdl:part name="parameters" element="tns:selectOblastResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectOblastByStudentSoapIn">
+    <wsdl:part name="parameters" element="tns:selectOblastByStudent" />
+  </wsdl:message>
+  <wsdl:message name="selectOblastByStudentSoapOut">
+    <wsdl:part name="parameters" element="tns:selectOblastByStudentResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectCompletedOblastByStudentSoapIn">
+    <wsdl:part name="parameters" element="tns:selectCompletedOblastByStudent" />
+  </wsdl:message>
+  <wsdl:message name="selectCompletedOblastByStudentSoapOut">
+    <wsdl:part name="parameters" element="tns:selectCompletedOblastByStudentResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectStrategySoapIn">
+    <wsdl:part name="parameters" element="tns:selectStrategy" />
+  </wsdl:message>
+  <wsdl:message name="selectStrategySoapOut">
+    <wsdl:part name="parameters" element="tns:selectStrategyResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectStrategyBySubjectAndOblastSoapIn">
+    <wsdl:part name="parameters" element="tns:selectStrategyBySubjectAndOblast" />
+  </wsdl:message>
+  <wsdl:message name="selectStrategyBySubjectAndOblastSoapOut">
+    <wsdl:part name="parameters" element="tns:selectStrategyBySubjectAndOblastResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectStrategyValueSoapIn">
+    <wsdl:part name="parameters" element="tns:selectStrategyValue" />
+  </wsdl:message>
+  <wsdl:message name="selectStrategyValueSoapOut">
+    <wsdl:part name="parameters" element="tns:selectStrategyValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectQuestionsSoapIn">
+    <wsdl:part name="parameters" element="tns:selectQuestions" />
+  </wsdl:message>
+  <wsdl:message name="selectQuestionsSoapOut">
+    <wsdl:part name="parameters" element="tns:selectQuestionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectAllQuestionsSoapIn">
+    <wsdl:part name="parameters" element="tns:selectAllQuestions" />
+  </wsdl:message>
+  <wsdl:message name="selectAllQuestionsSoapOut">
+    <wsdl:part name="parameters" element="tns:selectAllQuestionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectOneQuestionBySubjectAndFieldSoapIn">
+    <wsdl:part name="parameters" element="tns:selectOneQuestionBySubjectAndField" />
+  </wsdl:message>
+  <wsdl:message name="selectOneQuestionBySubjectAndFieldSoapOut">
+    <wsdl:part name="parameters" element="tns:selectOneQuestionBySubjectAndFieldResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectAllQuestionsBySubjectAndFieldSoapIn">
+    <wsdl:part name="parameters" element="tns:selectAllQuestionsBySubjectAndField" />
+  </wsdl:message>
+  <wsdl:message name="selectAllQuestionsBySubjectAndFieldSoapOut">
+    <wsdl:part name="parameters" element="tns:selectAllQuestionsBySubjectAndFieldResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectQuestionsBySubjectFieldAndValueSoapIn">
+    <wsdl:part name="parameters" element="tns:selectQuestionsBySubjectFieldAndValue" />
+  </wsdl:message>
+  <wsdl:message name="selectQuestionsBySubjectFieldAndValueSoapOut">
+    <wsdl:part name="parameters" element="tns:selectQuestionsBySubjectFieldAndValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="addOnlineLearningSoapIn">
+    <wsdl:part name="parameters" element="tns:addOnlineLearning" />
+  </wsdl:message>
+  <wsdl:message name="addOnlineLearningSoapOut">
+    <wsdl:part name="parameters" element="tns:addOnlineLearningResponse" />
+  </wsdl:message>
+  <wsdl:portType name="OnlineLearningSoap">
+    <wsdl:operation name="addQuestion">
+      <wsdl:input message="tns:addQuestionSoapIn" />
+      <wsdl:output message="tns:addQuestionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="editQuestion">
+      <wsdl:input message="tns:editQuestionSoapIn" />
+      <wsdl:output message="tns:editQuestionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteQuestion">
+      <wsdl:input message="tns:deleteQuestionSoapIn" />
+      <wsdl:output message="tns:deleteQuestionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addAnswer">
+      <wsdl:input message="tns:addAnswerSoapIn" />
+      <wsdl:output message="tns:addAnswerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="editAnswer">
+      <wsdl:input message="tns:editAnswerSoapIn" />
+      <wsdl:output message="tns:editAnswerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteAnswer">
+      <wsdl:input message="tns:deleteAnswerSoapIn" />
+      <wsdl:output message="tns:deleteAnswerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectChoicesByQuestionID">
+      <wsdl:input message="tns:selectChoicesByQuestionIDSoapIn" />
+      <wsdl:output message="tns:selectChoicesByQuestionIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addCompletedChapterByStudent">
+      <wsdl:input message="tns:addCompletedChapterByStudentSoapIn" />
+      <wsdl:output message="tns:addCompletedChapterByStudentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="checkRightChoice">
+      <wsdl:input message="tns:checkRightChoiceSoapIn" />
+      <wsdl:output message="tns:checkRightChoiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addSubjectQuestionData">
+      <wsdl:input message="tns:addSubjectQuestionDataSoapIn" />
+      <wsdl:output message="tns:addSubjectQuestionDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectNumberQuestionByChapter">
+      <wsdl:input message="tns:selectNumberQuestionByChapterSoapIn" />
+      <wsdl:output message="tns:selectNumberQuestionByChapterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectAllSubjects">
+      <wsdl:input message="tns:selectAllSubjectsSoapIn" />
+      <wsdl:output message="tns:selectAllSubjectsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectAllOblastBySubject">
+      <wsdl:input message="tns:selectAllOblastBySubjectSoapIn" />
+      <wsdl:output message="tns:selectAllOblastBySubjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addVisitedQuestion">
+      <wsdl:input message="tns:addVisitedQuestionSoapIn" />
+      <wsdl:output message="tns:addVisitedQuestionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectVisitedByQuestionID">
+      <wsdl:input message="tns:selectVisitedByQuestionIDSoapIn" />
+      <wsdl:output message="tns:selectVisitedByQuestionIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectVisitedNumberByQuestionID">
+      <wsdl:input message="tns:selectVisitedNumberByQuestionIDSoapIn" />
+      <wsdl:output message="tns:selectVisitedNumberByQuestionIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectAnsweredTrueByQuestionID">
+      <wsdl:input message="tns:selectAnsweredTrueByQuestionIDSoapIn" />
+      <wsdl:output message="tns:selectAnsweredTrueByQuestionIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectNumberLastAnsweredQuestions">
+      <wsdl:input message="tns:selectNumberLastAnsweredQuestionsSoapIn" />
+      <wsdl:output message="tns:selectNumberLastAnsweredQuestionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="setAnsweredTrueQuestion">
+      <wsdl:input message="tns:setAnsweredTrueQuestionSoapIn" />
+      <wsdl:output message="tns:setAnsweredTrueQuestionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selektirajQuestionID">
+      <wsdl:input message="tns:selektirajQuestionIDSoapIn" />
+      <wsdl:output message="tns:selektirajQuestionIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="removeDataFromVisitQuestion">
+      <wsdl:input message="tns:removeDataFromVisitQuestionSoapIn" />
+      <wsdl:output message="tns:removeDataFromVisitQuestionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectSubjectByUser">
+      <wsdl:input message="tns:selectSubjectByUserSoapIn" />
+      <wsdl:output message="tns:selectSubjectByUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectOblast">
+      <wsdl:input message="tns:selectOblastSoapIn" />
+      <wsdl:output message="tns:selectOblastSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectOblastByStudent">
+      <wsdl:input message="tns:selectOblastByStudentSoapIn" />
+      <wsdl:output message="tns:selectOblastByStudentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectCompletedOblastByStudent">
+      <wsdl:input message="tns:selectCompletedOblastByStudentSoapIn" />
+      <wsdl:output message="tns:selectCompletedOblastByStudentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectStrategy">
+      <wsdl:input message="tns:selectStrategySoapIn" />
+      <wsdl:output message="tns:selectStrategySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectStrategyBySubjectAndOblast">
+      <wsdl:input message="tns:selectStrategyBySubjectAndOblastSoapIn" />
+      <wsdl:output message="tns:selectStrategyBySubjectAndOblastSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectStrategyValue">
+      <wsdl:input message="tns:selectStrategyValueSoapIn" />
+      <wsdl:output message="tns:selectStrategyValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectQuestions">
+      <wsdl:input message="tns:selectQuestionsSoapIn" />
+      <wsdl:output message="tns:selectQuestionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectAllQuestions">
+      <wsdl:input message="tns:selectAllQuestionsSoapIn" />
+      <wsdl:output message="tns:selectAllQuestionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectOneQuestionBySubjectAndField">
+      <wsdl:input message="tns:selectOneQuestionBySubjectAndFieldSoapIn" />
+      <wsdl:output message="tns:selectOneQuestionBySubjectAndFieldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectAllQuestionsBySubjectAndField">
+      <wsdl:input message="tns:selectAllQuestionsBySubjectAndFieldSoapIn" />
+      <wsdl:output message="tns:selectAllQuestionsBySubjectAndFieldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectQuestionsBySubjectFieldAndValue">
+      <wsdl:input message="tns:selectQuestionsBySubjectFieldAndValueSoapIn" />
+      <wsdl:output message="tns:selectQuestionsBySubjectFieldAndValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addOnlineLearning">
+      <wsdl:input message="tns:addOnlineLearningSoapIn" />
+      <wsdl:output message="tns:addOnlineLearningSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OnlineLearningSoap" type="tns:OnlineLearningSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addQuestion">
+      <soap:operation soapAction="http://tempuri.org/addQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editQuestion">
+      <soap:operation soapAction="http://tempuri.org/editQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteQuestion">
+      <soap:operation soapAction="http://tempuri.org/deleteQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAnswer">
+      <soap:operation soapAction="http://tempuri.org/addAnswer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editAnswer">
+      <soap:operation soapAction="http://tempuri.org/editAnswer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAnswer">
+      <soap:operation soapAction="http://tempuri.org/deleteAnswer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectChoicesByQuestionID">
+      <soap:operation soapAction="http://tempuri.org/selectChoicesByQuestionID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCompletedChapterByStudent">
+      <soap:operation soapAction="http://tempuri.org/addCompletedChapterByStudent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkRightChoice">
+      <soap:operation soapAction="http://tempuri.org/checkRightChoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addSubjectQuestionData">
+      <soap:operation soapAction="http://tempuri.org/addSubjectQuestionData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectNumberQuestionByChapter">
+      <soap:operation soapAction="http://tempuri.org/selectNumberQuestionByChapter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAllSubjects">
+      <soap:operation soapAction="http://tempuri.org/selectAllSubjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAllOblastBySubject">
+      <soap:operation soapAction="http://tempuri.org/selectAllOblastBySubject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addVisitedQuestion">
+      <soap:operation soapAction="http://tempuri.org/addVisitedQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectVisitedByQuestionID">
+      <soap:operation soapAction="http://tempuri.org/selectVisitedByQuestionID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectVisitedNumberByQuestionID">
+      <soap:operation soapAction="http://tempuri.org/selectVisitedNumberByQuestionID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAnsweredTrueByQuestionID">
+      <soap:operation soapAction="http://tempuri.org/selectAnsweredTrueByQuestionID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectNumberLastAnsweredQuestions">
+      <soap:operation soapAction="http://tempuri.org/selectNumberLastAnsweredQuestions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setAnsweredTrueQuestion">
+      <soap:operation soapAction="http://tempuri.org/setAnsweredTrueQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selektirajQuestionID">
+      <soap:operation soapAction="http://tempuri.org/selektirajQuestionID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeDataFromVisitQuestion">
+      <soap:operation soapAction="http://tempuri.org/removeDataFromVisitQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectSubjectByUser">
+      <soap:operation soapAction="http://tempuri.org/selectSubjectByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectOblast">
+      <soap:operation soapAction="http://tempuri.org/selectOblast" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectOblastByStudent">
+      <soap:operation soapAction="http://tempuri.org/selectOblastByStudent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectCompletedOblastByStudent">
+      <soap:operation soapAction="http://tempuri.org/selectCompletedOblastByStudent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectStrategy">
+      <soap:operation soapAction="http://tempuri.org/selectStrategy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectStrategyBySubjectAndOblast">
+      <soap:operation soapAction="http://tempuri.org/selectStrategyBySubjectAndOblast" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectStrategyValue">
+      <soap:operation soapAction="http://tempuri.org/selectStrategyValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectQuestions">
+      <soap:operation soapAction="http://tempuri.org/selectQuestions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAllQuestions">
+      <soap:operation soapAction="http://tempuri.org/selectAllQuestions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectOneQuestionBySubjectAndField">
+      <soap:operation soapAction="http://tempuri.org/selectOneQuestionBySubjectAndField" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAllQuestionsBySubjectAndField">
+      <soap:operation soapAction="http://tempuri.org/selectAllQuestionsBySubjectAndField" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectQuestionsBySubjectFieldAndValue">
+      <soap:operation soapAction="http://tempuri.org/selectQuestionsBySubjectFieldAndValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addOnlineLearning">
+      <soap:operation soapAction="http://tempuri.org/addOnlineLearning" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="OnlineLearningSoap12" type="tns:OnlineLearningSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addQuestion">
+      <soap12:operation soapAction="http://tempuri.org/addQuestion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editQuestion">
+      <soap12:operation soapAction="http://tempuri.org/editQuestion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteQuestion">
+      <soap12:operation soapAction="http://tempuri.org/deleteQuestion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAnswer">
+      <soap12:operation soapAction="http://tempuri.org/addAnswer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editAnswer">
+      <soap12:operation soapAction="http://tempuri.org/editAnswer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAnswer">
+      <soap12:operation soapAction="http://tempuri.org/deleteAnswer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectChoicesByQuestionID">
+      <soap12:operation soapAction="http://tempuri.org/selectChoicesByQuestionID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCompletedChapterByStudent">
+      <soap12:operation soapAction="http://tempuri.org/addCompletedChapterByStudent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkRightChoice">
+      <soap12:operation soapAction="http://tempuri.org/checkRightChoice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addSubjectQuestionData">
+      <soap12:operation soapAction="http://tempuri.org/addSubjectQuestionData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectNumberQuestionByChapter">
+      <soap12:operation soapAction="http://tempuri.org/selectNumberQuestionByChapter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAllSubjects">
+      <soap12:operation soapAction="http://tempuri.org/selectAllSubjects" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAllOblastBySubject">
+      <soap12:operation soapAction="http://tempuri.org/selectAllOblastBySubject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addVisitedQuestion">
+      <soap12:operation soapAction="http://tempuri.org/addVisitedQuestion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectVisitedByQuestionID">
+      <soap12:operation soapAction="http://tempuri.org/selectVisitedByQuestionID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectVisitedNumberByQuestionID">
+      <soap12:operation soapAction="http://tempuri.org/selectVisitedNumberByQuestionID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAnsweredTrueByQuestionID">
+      <soap12:operation soapAction="http://tempuri.org/selectAnsweredTrueByQuestionID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectNumberLastAnsweredQuestions">
+      <soap12:operation soapAction="http://tempuri.org/selectNumberLastAnsweredQuestions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setAnsweredTrueQuestion">
+      <soap12:operation soapAction="http://tempuri.org/setAnsweredTrueQuestion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selektirajQuestionID">
+      <soap12:operation soapAction="http://tempuri.org/selektirajQuestionID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeDataFromVisitQuestion">
+      <soap12:operation soapAction="http://tempuri.org/removeDataFromVisitQuestion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectSubjectByUser">
+      <soap12:operation soapAction="http://tempuri.org/selectSubjectByUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectOblast">
+      <soap12:operation soapAction="http://tempuri.org/selectOblast" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectOblastByStudent">
+      <soap12:operation soapAction="http://tempuri.org/selectOblastByStudent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectCompletedOblastByStudent">
+      <soap12:operation soapAction="http://tempuri.org/selectCompletedOblastByStudent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectStrategy">
+      <soap12:operation soapAction="http://tempuri.org/selectStrategy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectStrategyBySubjectAndOblast">
+      <soap12:operation soapAction="http://tempuri.org/selectStrategyBySubjectAndOblast" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectStrategyValue">
+      <soap12:operation soapAction="http://tempuri.org/selectStrategyValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectQuestions">
+      <soap12:operation soapAction="http://tempuri.org/selectQuestions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAllQuestions">
+      <soap12:operation soapAction="http://tempuri.org/selectAllQuestions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectOneQuestionBySubjectAndField">
+      <soap12:operation soapAction="http://tempuri.org/selectOneQuestionBySubjectAndField" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAllQuestionsBySubjectAndField">
+      <soap12:operation soapAction="http://tempuri.org/selectAllQuestionsBySubjectAndField" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectQuestionsBySubjectFieldAndValue">
+      <soap12:operation soapAction="http://tempuri.org/selectQuestionsBySubjectFieldAndValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addOnlineLearning">
+      <soap12:operation soapAction="http://tempuri.org/addOnlineLearning" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OnlineLearning">
+    <wsdl:port name="OnlineLearningSoap" binding="tns:OnlineLearningSoap">
+      <soap:address location="http://localhost:50649/MyQuiz%2024.09.2014/OnlineLearning.asmx" />
+    </wsdl:port>
+    <wsdl:port name="OnlineLearningSoap12" binding="tns:OnlineLearningSoap12">
+      <soap12:address location="http://localhost:50649/MyQuiz%2024.09.2014/OnlineLearning.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

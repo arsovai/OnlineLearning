@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Web Developer Express 2005
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "C:\...\MyQuiz\", "..\MyQuiz\", "{33D67F2A-0D05-4A02-BB84-D8E809F92261}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.VirtualPath = "/MyQuiz"
+		Debug.AspNetCompiler.PhysicalPath = "..\MyQuiz\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\MyQuiz\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/MyQuiz"
+		Release.AspNetCompiler.PhysicalPath = "..\MyQuiz\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\MyQuiz\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "50649"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33D67F2A-0D05-4A02-BB84-D8E809F92261}.Debug|.NET.ActiveCfg = Debug|.NET
+		{33D67F2A-0D05-4A02-BB84-D8E809F92261}.Debug|.NET.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
